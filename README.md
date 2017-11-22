@@ -7,12 +7,16 @@ Usage
 ---
     include the index.js file
 
-    <div id='indicator'></div>
-
+    <div id="indicator"></div>
     <script>
-    new ScrollIndicator({
-        el:"indicator"
-    })
+        new ScrollIndicator({
+            element: "indicator",
+            percentileToActivate: 1,
+            percentileChangeToArrow: 90,
+            updateTimeValue: true,
+            totalTime: 10,
+            units: 'min'
+        })
     </script>
 
 Links
