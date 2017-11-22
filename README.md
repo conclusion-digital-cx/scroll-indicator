@@ -1,7 +1,3 @@
-Usage
----
-This is a scroll-indicator that counts down from a number of units relative to the amount the user has scrolled.
-
 Install
 ---
     
