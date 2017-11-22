@@ -1,28 +1,19 @@
-/* Needed style for the scroll indicator */
+/* Indicator pos */
 
-.border-active>svg .circle-bg-stroke {
-    transform: scale(1);
+#indicator {
+    position: fixed;
+    top: 100px;
+    right: 20px;
 }
 
-.border-active>svg .circle {
-    opacity: 1;
-}
 
-.arrow-active>svg .arrow-up {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.arrow-active>svg .progress-content {
-    opacity: 0;
-    transform: translateY(-0.2em);
-}
+/* Indicator styles */
 
 .scroll-indicator {
-    cursor: pointer;
-    overflow: hidden;
     width: 90px;
     justify-content: space-around;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 .circular-chart {
@@ -30,16 +21,6 @@
     margin: 10px auto;
     max-width: 80%;
     max-height: 250px;
-}
-
-.arrow-up {
-    opacity: 0;
-    transform: translateY(0.2em);
-    transition: all 0.2s linear;
-}
-
-.progress-content {
-    transition: all 0.2s linear;
 }
 
 .circle-bg {
@@ -54,22 +35,27 @@
     fill: none;
     stroke: #ddd;
     stroke-width: 2;
-    transition: all 0.3s linear;
+    transition: all 0.3s cubic-bezier(0.34, 1.61, 0.7, 1);
     transform-origin: center center;
     z-index: 10;
 }
 
-.circle {
+.circle-progress-stroke {
     opacity: 0;
     fill: none;
+    stroke: #03ACEC;
     stroke-width: 2.8;
     stroke-linecap: round;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.34, 1.61, 0.7, 1);
     transform-origin: center center;
 }
 
-.circular-chart .circle {
-    stroke: #03ACEC;
+
+/* Progress Contents */
+
+.progress-content {
+    transition: all 0.3s cubic-bezier(0.34, 1.61, 0.7, 1);
+    pointer-events: none;
 }
 
 .percentage {
@@ -84,4 +70,44 @@
     font-family: sans-serif;
     font-size: 0.4em;
     text-anchor: middle;
+}
+
+.arrow-up {
+    opacity: 0;
+    transform: translateY(0.2em) scale(0.8);
+    transform-origin: center center;
+    transition: all 0.2s cubic-bezier(0.34, 1.61, 0.7, 1);
+}
+
+
+/* Active Classes */
+
+.border-active>svg .circle-bg-stroke {
+    transform: scale(1);
+}
+
+.border-active>svg .circle-progress-stroke {
+    opacity: 1;
+}
+
+.arrow-active>svg .arrow-up {
+    opacity: 1;
+    transform: translateY(0) scale(0.8);
+}
+
+.arrow-active>svg .progress-content {
+    opacity: 0;
+    transform: translateY(-0.2em);
+}
+
+.arrow-active .scroll-indicator {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+
+/* Hover */
+
+.arrow-active:hover .arrow-up {
+    transform: scale(1);
 }

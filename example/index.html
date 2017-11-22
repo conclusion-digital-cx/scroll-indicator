@@ -14,16 +14,13 @@
 <div id='indicator'></div>
 <script>
     new ScrollIndicator({
-        el: "indicator",
-        totalTime: 5,
-        units: "min"
+        element: "indicator",
+        percentileToActivate: 1,
+        percentileChangeToArrow: 90,
+        updateTimeValue: true,
+        totalTime: 10,
+        units: 'min'
     })
-
-    // new ScrollIndicator({
-    //     el: "indicator2",
-    //     totalTime: 5,
-    //     units: "min"
-    // })
 </script>
 
 
