@@ -1,0 +1,15 @@
+{
+  "name": "scroll-indicator",
+  "version": "1.0.0",
+  "description": "Neat scroll indicator",
+  "main": "scroll-indicator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Scroll",
+    "indicator"
+  ],
+  "author": "Conclusion Digital",
+  "license": "ISC"
+}
