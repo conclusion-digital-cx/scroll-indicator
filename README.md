@@ -1,3 +1,7 @@
+Usage
+---
+This is a scroll-indicator that counts down from a number of units relative to the amount the user has scrolled.
+
 Install
 ---
     
@@ -26,9 +30,3 @@ Usage
             units: 'min'
         })
     </script>
-
-Links
----
-    https://coderwall.com/p/kxlb5a/dom-scrolltop-scrollleft-cheatsheet
-    https://www.cssscript.com/pure-css-circular-percentage-bar/
-    https://www.cssscript.com/circular-progress-bar-plain-html-css/
