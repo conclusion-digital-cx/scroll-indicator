@@ -7,6 +7,14 @@ Usage
 ---
     include the index.js file
 
+    <style>
+        #indicator {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+        }
+    </style>
+
     <div id="indicator"></div>
     <script>
         new ScrollIndicator({
