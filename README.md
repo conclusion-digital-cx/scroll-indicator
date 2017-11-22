@@ -1,7 +1,7 @@
 Install
 ---
     
-    npm install xx
+    npm install https://github.com/conclusion-digital-cx/scroll-indicator.git
 
 Usage
 ---
