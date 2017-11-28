@@ -169,21 +169,18 @@
 
 <script>
     const WORDS_PER_MIN = 250;
-    //Calc minutes
     const text = document.getElementById('text').innerText
-        //console.log(text)
+
     function WordCount(str) {
         return str.split(" ").length;
     }
-    const min = Math.round(WordCount(text) / WORDS_PER_MIN)
-    console.log(min)
 
     new ScrollIndicator({
         element: "indicator",
         percentileToActivate: 1,
         percentileChangeToArrow: 90,
         updateTimeValue: true,
-        totalTime: min || 10,
+        totalTime: Math.round(WordCount(text) / WORDS_PER_MIN) || 10,
         units: 'min'
     })
 </script>
