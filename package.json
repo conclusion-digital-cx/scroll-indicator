@@ -2,14 +2,14 @@
   "name": "scroll-indicator",
   "version": "1.0.0",
   "description": "Neat scroll indicator",
-  "main": "scroll-indicator.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "Scroll",
-    "indicator"
+    "Indicator"
   ],
-  "author": "Conclusion Digital",
+  "author": "Jelle Hak & Roland Peelen",
   "license": "ISC"
 }
