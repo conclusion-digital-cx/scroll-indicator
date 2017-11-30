@@ -7,9 +7,11 @@ function ScrollIndicator(settings) {
     // Setup global variables
     const globals = {
         element: settings.element || 'indicator',
+        targetElement: settings.targetElement || false,
+        targetElementOffset: settings.targetElementOffset || 0,
         percentileToActivate: settings.percentileToActivate || 1,
         percentileChangeToArrow: settings.percentileChangeToArrow || 80,
-        updateTimeValue: settings.updateTimeValue || true,
+        updateTimeValue: 'updateTimeValue' in settings ? settings.updateTimeValue : true,
         totalTime: settings.totalTime || 10,
         units: settings.units || 'min'
     }
@@ -24,7 +26,8 @@ function ScrollIndicator(settings) {
         arrowUp: rootComponent.getElementsByClassName('arrow-up')[0],
         circle: rootComponent.getElementsByClassName('circle-progress-stroke')[0],
         text: rootComponent.getElementsByClassName('percentage')[0],
-        units: rootComponent.getElementsByClassName('units')[0]
+        units: rootComponent.getElementsByClassName('units')[0],
+        targetElement: globals.targetElement ? document.getElementById(globals.targetElement) : false
     }
 
     function updateCircle(percentage) {
@@ -61,12 +64,16 @@ function ScrollIndicator(settings) {
 
     window.onload = function() {
         updateCircle(0);
+        domElements.text.innerHTML = globals.totalTime;
         domElements.units.innerHTML = globals.units;
     }
 
     window.onscroll = function() {
         const body = document.body;
-        const max = body.scrollHeight - body.clientHeight;
+        let max = body.scrollHeight - body.clientHeight;
+        if(domElements.targetElement){
+            max -= (max - (domElements.targetElement.clientHeight + domElements.targetElement.offsetTop + globals.targetElementOffset));
+        }
         const percentage = Math.round((body.scrollTop / max) * 100);
         updateCircle(percentage);
     }
