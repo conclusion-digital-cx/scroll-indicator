@@ -70,7 +70,10 @@ function ScrollIndicator(settings) {
 
     window.onscroll = function() {
         const body = document.body;
-        let max = body.scrollHeight - body.clientHeight;
+        const clientHeight = window.innerHeight || document.documentElement.clientHeight || body.clientHeight;
+        const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+        let max = body.scrollHeight - clientHeight;
         if(domElements.targetElement){
             max -= (max - (domElements.targetElement.clientHeight + domElements.targetElement.offsetTop + globals.targetElementOffset));
         }
